@@ -1,5 +1,6 @@
-<h1 align="center">WeCom-Bot</h1>
 <img width="1024" height="572" alt="image" src="https://github.com/user-attachments/assets/2ffa9baa-54e4-4594-a9b4-e0ebd42bf198" />
+<h1 align="center">WeCom-Bot</h1>
+
 
 <p align="center">
   WeCom-Bot 是一个<strong>零封号风险</strong>、<strong>纯视觉感知 (RPA)</strong> 的企业微信智能自动化伴侣与群聊助手。<br>
