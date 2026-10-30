@@ -1,42 +1,56 @@
-# 企业微信 LongCat AI 自动化助手 (WeCom-LongCat-Bot)
+<h1 align="center">WeCom-Bot</h1>
 
-> **基于原生 Windows UI 模拟 (RPA) + 极速屏幕 OCR 视觉感知的全自动企业微信 AI 伴侣与群聊助手。**  
-> **零 Hook、零内存注入、零篡改协议，彻底告别封号风险！**
+<p align="center">
+  WeCom-Bot 是一个<strong>零封号风险</strong>、<strong>纯视觉感知 (RPA)</strong> 的企业微信智能自动化伴侣与群聊助手。<br>
+  基于 RapidOCR 屏幕定轨与 LongCat / GLM 大模型，以“AI 蓝色气泡收尾铁律”实现 7×24h 智能交互与长效记忆沉淀。
+</p>
 
----
+<p align="center">
+  <a href="https://github.com/XiaKaiYang/wecom-bot/stargazers"><img src="https://img.shields.io/github/stars/XiaKaiYang/wecom-bot?style=flat&label=Stars&labelColor=2A3B4C&color=60A5FA" alt="Stargazers"></a>
+  <a href="https://github.com/XiaKaiYang/wecom-bot/network/members"><img src="https://img.shields.io/github/forks/XiaKaiYang/wecom-bot?style=flat&label=Forks&labelColor=2A3B4C&color=60A5FA" alt="Forks"></a>
+  <a href="https://github.com/XiaKaiYang/wecom-bot/issues"><img src="https://img.shields.io/github/issues/XiaKaiYang/wecom-bot?style=flat&label=Issues&labelColor=2A3B4C&color=60A5FA" alt="Issues"></a>
+  <a href="https://github.com/XiaKaiYang/wecom-bot/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-60A5FA?style=flat&labelColor=2A3B4C&color=60A5FA" alt="License"></a>
+</p>
 
-## 🌟 核心特性与创新设计
-
-### 1. 🛡️ 零封号安全架构（Zero-Ban Risk）
-* **纯视觉与系统级输入模拟**：通过 `RapidOCR` + Windows 标准 GDI 屏幕截帧，结合 Win32 原生光标定位与键盘事件（`SetCursorPos` + `keybd_event`）。
-* **杜绝任何危险 Hook**：不注入任何 DLL，不读取内存指针，不篡改本地 SQLite 数据库或修改网络协议包，完全以真实用户的使用方式与企业微信交互。
-
-### 2. ⚡ AI 收尾铁律（Bottom-Bubble Invariant）
-* **必须由 AI 终结对话**：通过屏幕颜色与几何坐标实时判定视口底部的最后一条气泡。
-* **判定原则**：只要最底部的气泡不是**自身蓝色气泡**（即为好友或群友的白色气泡），机器人立刻触发回复收尾，杜绝消息漏回或未读挂起。
-
-### 3. 🎭 多重会话智能协同与个性化人设
-* **群聊互动模式**：
-  * 幽默风趣、接地气的智能群聊小助手。
-  * 融合实时天气查询（调用 `wttr.in` 获取城市气象实况）。
-  * 毫秒级群友个性化画像注入（自动识别发言者偏好）。
-* **1对1 私聊模式**：
-  * 支持配置独立私聊会话与定制专属提示词（Prompt），提供贴心自然的沟通体验。
-
-### 4. 🧠 异步长效记忆引擎（LLM Distillation Memory）
-* **轻量毫秒级响应**：本地持久化 JSON 键值索引，纯内存哈希查询耗时 `< 1ms`，零文件锁冲突。
-* **后台异步智能提炼**：每次对话完成后，后台守护线程通过 `glm-4-flash` 大模型自动从对话中提炼关键事实（偏好、习惯、反感的人事物等），自动追加沉淀到记忆库。
-
-### 5. 👁️ 视觉自愈巡检（Visual Healer）
-* **像素级几何对齐**：通过快速 OCR 动态获取会话列表，计算多边形中心点精确定位并点击，会话切换延迟低至 80ms。
-* **会话防走丢**：若误点至无关联系人（如企业微信团队等），自动感知并拉回目标会话；若会话滑出可视区域，自动激活快捷搜索重定向。
+> [!TIP]
+> 本项目采用纯视觉屏幕感知与 Win32 原生硬件级输入仿真机制，**零 Hook、零内存注入、零协议篡改**，彻底告别封号风险！
 
 ---
 
-## 📂 项目结构
+## 主要功能
+
+- 🛡️ **零封号安全架构**：纯 Windows UI 与 GDI 视觉截帧，无 DLL 注入
+- ⚡ **AI 蓝色气泡收尾铁律**：视口最底端非自身蓝色气泡则必回复，绝无漏回
+- 🧠 **轻量长效记忆引擎**：JSON + 内存字典毫秒级检索，大模型异步蒸馏新特征
+- 👁️ **极速视觉自愈系统**：RapidOCR 像素级几何定轨，80ms 会话快速切换与防走丢
+- ⛅ **实时气象数据直通**：内置天气接口，智能感知天气提问并融合城市实况
+- 🎭 **多会话独立策略隔离**：群聊风趣助手与 1对1 私聊支持独立独立 Prompt 与上下文
+- 🚀 **开箱即用**：提供 Windows 桌面一键双击启动脚本与环境自检机制
+- 查看完整能力清单：[详细功能清单](#详细功能清单)
+
+## 支持平台与运行环境
+
+| 平台 | 支持架构 | 客户端版本 | 推荐运行方式 |
+|------|----------|-----------|-------------|
+| Windows | Windows 10 / 11（x64） | 企业微信桌面端 (WXWork) | 双击 `start.bat` / 命令行守护 |
+
+## 详细功能清单
+
+| 功能模块 | 说明 |
+|---------|------|
+| **零封号纯 RPA** | 完全基于操作系统级鼠标光标 (`SetCursorPos`) 与键盘事件 (`keybd_event`)，不篡改客户端数据与协议包 |
+| **AI 气泡收尾铁律** | 实时采样视口最底部气泡 RGB 颜色与几何靠边判定，保证对话始终由 AI 蓝色气泡终结，杜绝冷场 |
+| **长效记忆引擎** | 本地 `user_memories.json` 键值存储，查询耗时 `< 1ms`，零文件锁死锁；后台线程异步自动提炼群友新特征 |
+| **极速几何定轨** | 使用 RapidOCR 对会话列表计算多边形几何中心点，快速精准点击，杜绝多模态大模型的坐标幻觉 |
+| **会话防走丢** | 误触客服或系统联系人时自动感知并拉回主群；会话滑出屏幕时自动激活快捷重定向重回视野 |
+| **实时天气直通** | 内置在线天气查询模块，检测到气温、下雨、天气等提问时秒级获取真实数据并注入 Prompt 上下文 |
+| **提及智能清洗** | 自动剥离群聊中的 `@AI`、`@机器人`、`@助手` 等提及前缀，保证送入大模型的上下文干净整洁 |
+| **控制台防冻结** | 底层调用 Windows API 关闭控制台 QuickEdit 模式，彻底杜绝鼠标误点 CMD 窗口导致线程挂起 |
+
+## 项目结构
 
 ```text
-wecom_longcat_bot/
+wecom-bot/
 ├── bot.py                  # 核心服务主循环、窗口截帧与事件派发
 ├── config.py               # 配置中心（支持 .env 自动加载）
 ├── memory_manager.py       # 轻量级零锁群友/好友记忆管理器
@@ -48,26 +62,26 @@ wecom_longcat_bot/
 └── README.md               # 项目详细说明文档
 ```
 
----
+## 快速上手
 
-## 🚀 快速上手
+如果你想从源码运行或二次开发，请遵循以下步骤：
 
-### 1. 环境准备
-推荐使用 Python 3.10+ 环境：
 ```bash
+# 1. 克隆项目到本地
 git clone https://github.com/XiaKaiYang/wecom-bot.git
 cd wecom-bot
+
+# 2. 安装项目依赖
 pip install -r requirements.txt
+
+# 3. 配置环境变量
+copy .env.example .env
 ```
 
-### 2. 配置环境变量
-复制根目录下的 `.env.example` 为 `.env`：
-```bash
-cp .env.example .env
-```
-在 `.env` 中填入你的 API Key：
+在生成的 `.env` 文件中填入您的 API Key：
+
 ```env
-# LongCat 平台 API 配置 (https://api.longcat.chat)
+# LongCat 大模型 API 配置 (https://api.longcat.chat)
 LONGCAT_API_KEY=your_longcat_api_key_here
 LONGCAT_BASE_URL=https://api.longcat.chat/openai/v1
 LONGCAT_MODEL=LongCat-2.5-Preview
@@ -78,30 +92,58 @@ GLM_BASE_URL=https://open.bigmodel.cn/api/paas/v4
 GLM_MODEL=glm-4v-flash
 ```
 
-### 3. 运行服务
-* **方式一：双击启动（推荐）**
+启动运行：
+
+* **方式一：双击启动（推荐）**  
   直接双击根目录下的 **`start.bat`**。
-* **方式二：命令行运行**
+* **方式二：命令行启动**  
   ```bash
   python bot.py
   ```
 
 > **运行提示**：
-> 1. 请保持企业微信客户端处于桌面打开或未最小化状态。
+> 1. 运行期间请保持企业微信客户端处于桌面打开或未最小化状态。
 > 2. 脚本已自动集成防休眠与 Windows 控制台 QuickEdit 冻结禁用机制。
 
+## 配置说明
+
+核心参数可在 `config.py` 或 `.env` 中灵活定制：
+
+| 配置项 | 说明 | 默认值 |
+| :--- | :--- | :--- |
+| `LONGCAT_API_KEY` | LongCat 平台 API Key | 从 `.env` 读取 |
+| `LONGCAT_MODEL` | 对话大模型代号 | `LongCat-2.5-Preview` |
+| `TARGET_CHATS` | 目标会话字典（支持多群聊、多私聊独立 Prompt） | 详见 `config.py` |
+| `TRIGGER_MODE` | 触发模式：`ALL`（回复对方每条发言） / `KEYWORD`（仅关键词触发） | `ALL` |
+| `TRIGGER_KEYWORDS` | 关键词列表（当 TRIGGER_MODE 为 KEYWORD 时生效） | `["@AI", "AI", "@bot", "助手"]` |
+| `POLL_INTERVAL` | 界面轮询检测间隔（秒） | `2.0` |
+
 ---
 
-## ⚙️ 个性化定制
+## 贡献者
 
-可在 `config.py` 中自定义目标会话与触发规则：
-* **`TARGET_CHATS`**：添加或修改需要监听的群聊/私聊名称、会话类型及独立的专属 System Prompt。
-* **`TRIGGER_MODE`**：
-  * `"ALL"`：回复目标会话中对方发送的所有新消息。
-  * `"KEYWORD"`：仅当消息包含特定关键词或 `@` 时触发回复。
-* **`POLL_INTERVAL`**：视口巡检间隔，默认 `2.0` 秒。
+感谢所有做出贡献的开发者！
+
+<p align="center">
+  <a href="https://github.com/XiaKaiYang/wecom-bot/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=XiaKaiYang/wecom-bot" alt="Contributors" />
+  </a>
+</p>
+
+## Star History
+
+<a href="https://www.star-history.com/#XiaKaiYang/wecom-bot&type=date&legend=top-left">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=XiaKaiYang/wecom-bot&type=date&theme=dark&legend=top-left" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=XiaKaiYang/wecom-bot&type=date&legend=top-left" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=XiaKaiYang/wecom-bot&type=date&legend=top-left" />
+  </picture>
+</a>
+
+<div align="center">
 
 ---
 
-## 📄 开源许可
-MIT License. 仅供学习交流与自动化办公探索，请合理合法合规使用。
+**请负责任地使用本工具，遵守相关法律法规与平台服务条款**
+
+</div>
