@@ -1,6 +1,6 @@
-</cenrter>
+<p align="center">
 <img width="60%" height="572" alt="image" src="https://github.com/user-attachments/assets/2ffa9baa-54e4-4594-a9b4-e0ebd42bf198" />
-</cenrter>
+</p>
 
 <h1 align="center">WeCom-Bot</h1>
 
