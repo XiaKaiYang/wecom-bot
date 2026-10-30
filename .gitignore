@@ -1,0 +1,28 @@
+# 敏感凭据与本地私有信息 (严禁提交到公开仓库)
+.env
+user_memories.json
+*.log
+bot.log
+
+# Python 编译缓存
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# 本地数据目录与临时文件
+mem0_db/
+*.tmp
+*.png
+debug_*.jpg
+test_*.py
+
+# 操作系统与编辑器配置
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+Thumbs.db
+Desktop.ini
